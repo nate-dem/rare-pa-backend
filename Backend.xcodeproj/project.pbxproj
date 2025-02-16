@@ -12,13 +12,19 @@
 		47F2ACE22D55D94C00A58051 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 47F2ACE12D55D94C00A58051 /* FirebaseAnalytics */; };
 		47F2ACE42D55D94C00A58051 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 47F2ACE32D55D94C00A58051 /* FirebaseCore */; };
 		47F2ACE62D55D94C00A58051 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 47F2ACE52D55D94C00A58051 /* FirebaseDatabase */; };
-		47F2AE852D55E27600A58051 /* Backend.app in Resources */ = {isa = PBXBuildFile; fileRef = 47F2AB3C2D55D41100A58051 /* Backend.app */; };
 		47F2B01E2D56DF9A00A58051 /* Backend_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F2B0142D56DF9A00A58051 /* Backend_Watch.framework */; };
 		47F2B0292D56DF9A00A58051 /* Backend_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F2B0142D56DF9A00A58051 /* Backend_Watch.framework */; };
 		47F2B02B2D56DF9A00A58051 /* Backend_Watch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47F2B0142D56DF9A00A58051 /* Backend_Watch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4750938B2D61C4B3009C930F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47F2AB342D55D41100A58051 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47F2AC1A2D55D60900A58051;
+			remoteInfo = "Backend-Watch Watch App";
+		};
 		47F2AB4D2D55D41200A58051 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 47F2AB342D55D41100A58051 /* Project object */;
@@ -293,6 +299,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4750938C2D61C4B3009C930F /* PBXTargetDependency */,
 				47F2B0282D56DF9A00A58051 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -566,7 +573,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F2AE852D55E27600A58051 /* Backend.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +666,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4750938C2D61C4B3009C930F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47F2AC1A2D55D60900A58051 /* Backend-Watch Watch App */;
+			targetProxy = 4750938B2D61C4B3009C930F /* PBXContainerItemProxy */;
+		};
 		47F2AB4E2D55D41200A58051 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 47F2AB3B2D55D41100A58051 /* Backend */;

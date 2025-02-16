@@ -17,28 +17,37 @@ class SessionDelegater: NSObject, WCSessionDelegate {
     
     // Required WCSessionDelegate methods
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        workoutManager?.checkWatchConnection()
+        DispatchQueue.main.async {
+            self.workoutManager?.checkWatchConnection()
+        }
     }
     
     // Required for iOS
     func sessionDidBecomeInactive(_ session: WCSession) {
-        workoutManager?.checkWatchConnection()
+        DispatchQueue.main.async {
+            self.workoutManager?.checkWatchConnection()
+        }
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        workoutManager?.checkWatchConnection()
-        session.activate()
+        DispatchQueue.main.async {
+            self.workoutManager?.checkWatchConnection()
+            session.activate()
+        }
+        
     }
     
     // Watch communication methods
     func sessionReachabilityDidChange(_ session: WCSession) {
-        workoutManager?.checkWatchConnection()
+        DispatchQueue.main.async {
+            self.workoutManager?.checkWatchConnection()
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         guard let heartRate = message["heartRate"] as? Double,
               let timestamp = message["timestamp"] as? Int else {
-            print("❌ Received invalid heart rate message")
+            print("Received invalid heart rate message")
             return
         }
         

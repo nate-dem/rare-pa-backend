@@ -9,6 +9,7 @@ import Foundation
 import WatchConnectivity
 import FirebaseDatabase
 
+@MainActor
 class WorkoutSessionManager: NSObject, ObservableObject {
     @Published var isWatchConnected = false
     @Published var currentHeartRate: Double = 0.0
@@ -21,10 +22,10 @@ class WorkoutSessionManager: NSObject, ObservableObject {
     private let sessionDelegater: SessionDelegater
     
     override init() {
-        print("📱 Initializing iOS WorkoutSessionManager...")
+        print("Initializing iOS WorkoutSessionManager...")
         
         // Initialize Firebase
-        let databaseURL = "https://rare-pa-server-default-rtdb.firebaseio.com"
+        let databaseURL = "https://rare-pa-backend-default-rtdb.firebaseio.com/"
         self.databaseRef = Database.database(url: databaseURL).reference()
         
         // Initialize WatchConnectivity
@@ -58,6 +59,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
                     if session.isReachable {
                         updateConnectionStatus("Watch connected and reachable")
                         isWatchConnected = true
+                        
                     } else {
                         updateConnectionStatus("Watch app not reachable. Please open the Watch app")
                     }
@@ -79,7 +81,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
     private func updateConnectionStatus(_ status: String) {
         DispatchQueue.main.async {
             self.connectionStatus = status
-            print("📱 Watch Status: \(status)")
+            print("Watch Status: \(status)")
         }
     }
 
@@ -100,9 +102,9 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         
         databaseRef.child("sessions").child(currentSessionID).child("heartRate").childByAutoId().setValue(heartRateData) { error, _ in
             if let error = error {
-                print("❌ Error sending heart rate to Firebase: \(error.localizedDescription)")
+                print("Error sending heart rate to Firebase: \(error.localizedDescription)")
             } else {
-                print("✅ Heart rate sent to Firebase successfully")
+                print("Heart rate sent to Firebase successfully")
             }
         }
     }
