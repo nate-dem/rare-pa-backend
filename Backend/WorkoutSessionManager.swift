@@ -24,11 +24,11 @@ class WorkoutSessionManager: NSObject, ObservableObject {
     override init() {
         print("Initializing iOS WorkoutSessionManager...")
         
-        // Initialize Firebase
+        // init Firebase
         let databaseURL = "https://rare-pa-backend-default-rtdb.firebaseio.com/"
         self.databaseRef = Database.database(url: databaseURL).reference()
         
-        // Initialize WatchConnectivity
+        // init WatchConnectivity
         self.session = WCSession.default
         self.sessionDelegater = SessionDelegater()
         
@@ -36,7 +36,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         
         self.sessionDelegater.setWorkoutManager(self)
         
-        // Set up WatchConnectivity
+        // set up WatchConnectivity
         if WCSession.isSupported() {
             session.delegate = sessionDelegater
             session.activate()
@@ -46,6 +46,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         }
     }
     
+    // check WatchConnectivity
     func checkWatchConnection() {
         guard WCSession.isSupported() else {
             updateConnectionStatus("Watch connectivity not supported")
@@ -78,6 +79,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         }
     }
     
+    // watch connection status changed
     private func updateConnectionStatus(_ status: String) {
         DispatchQueue.main.async {
             self.connectionStatus = status
@@ -85,7 +87,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         }
     }
 
-
+    // main function for sending health data to Firebase
     func sendHeartRateToFirebase(heartRate: Double, timestamp: Int) {
         let heartRateData: [String: Any] = [
             "heartRate": heartRate,

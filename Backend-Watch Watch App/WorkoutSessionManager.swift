@@ -34,6 +34,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         requestAuthorization()
     }
     
+    // ensure authorization for health data
     func requestAuthorization() {
         // guard let in case HKQuantityType fails
         guard let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
@@ -107,6 +108,7 @@ class WorkoutSessionManager: NSObject, ObservableObject {
         }
     }
 
+    // send health data updates from watch
     @MainActor
     private func sendHeartRateToPhone(_ heartRate: Double) {
         self.currentHeartRate = heartRate
@@ -137,6 +139,7 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate {
     }
 }
 
+// necessary for health data updates
 extension WorkoutSessionManager: HKLiveWorkoutBuilderDelegate {
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
     }

@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            // Connection Status
+            // display watch connectivity
             HStack {
                 Image(systemName: workoutManager.isWatchConnected ? "applewatch.radiowaves.left.and.right" : "applewatch.slash")
                     .foregroundColor(workoutManager.isWatchConnected ? .green : .red)
@@ -23,19 +23,9 @@ struct ContentView: View {
             .background(Color.gray.opacity(0.1))
             .cornerRadius(10)
             
+            // manage UI based on connectivity
             if workoutManager.isWatchConnected {
-                if workoutManager.isSessionActive {
-                    HeartRateView(heartRate: workoutManager.currentHeartRate)
-                    
-                    if !workoutManager.currentSessionID.isEmpty {
-                        Text("Session ID: \(workoutManager.currentSessionID)")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                } else {
-                    Text("Waiting for workout to start on Watch...")
-                        .font(.headline)
-                }
+                Text("Session Started!")
             } else {
                 VStack(spacing: 15) {
                     Image(systemName: "applewatch.watchface")

@@ -12,11 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            HeartRateView(heartRate: workoutManager.currentHeartRate)
-                .padding()
-            
-            Text("Heart Rate: \(Int(workoutManager.currentHeartRate)) BPM")
-                .font(.headline)
+            if workoutManager.isWorkoutActive {
+                Text("Session Started!").font(.headline).padding(.bottom, 30)
+            } else {
+                Text("Session Ended!").font(.headline).padding(.bottom, 30)
+            }
             
             Button(action: {
                 if workoutManager.isWorkoutActive {
@@ -25,7 +25,7 @@ struct ContentView: View {
                     workoutManager.startWorkout()
                 }
             }) {
-                Text(workoutManager.isWorkoutActive ? "End Workout" : "Start Workout")
+                Text(workoutManager.isWorkoutActive ? "End Session" : "Start Session")
                     .font(.headline)
                     .padding()
                     .background(Color.accentColor)

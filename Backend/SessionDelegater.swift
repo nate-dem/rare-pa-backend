@@ -15,35 +15,35 @@ class SessionDelegater: NSObject, WCSessionDelegate {
         self.workoutManager = manager
     }
     
-    // Required WCSessionDelegate methods
+    // watch session
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         DispatchQueue.main.async {
             self.workoutManager?.checkWatchConnection()
         }
     }
     
-    // Required for iOS
+    // check if watch connectivity failed
     func sessionDidBecomeInactive(_ session: WCSession) {
         DispatchQueue.main.async {
             self.workoutManager?.checkWatchConnection()
         }
     }
-    
+
     func sessionDidDeactivate(_ session: WCSession) {
         DispatchQueue.main.async {
             self.workoutManager?.checkWatchConnection()
             session.activate()
         }
-        
     }
     
-    // Watch communication methods
+    // watch connectivity changed
     func sessionReachabilityDidChange(_ session: WCSession) {
         DispatchQueue.main.async {
             self.workoutManager?.checkWatchConnection()
         }
     }
     
+    // session updates
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         guard let heartRate = message["heartRate"] as? Double,
               let timestamp = message["timestamp"] as? Int else {

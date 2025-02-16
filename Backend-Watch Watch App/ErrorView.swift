@@ -5,7 +5,6 @@
 //  Created by nate demchak on 2/3/25.
 //
 
-
 import SwiftUI
 
 struct ErrorView: View {
