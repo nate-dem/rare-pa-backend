@@ -1,0 +1,3 @@
+[submodule "VisionOSFrontend"]
+	path = VisionOSFrontend
+	url = git@github.com:hszczesniak/RARE-PA-Frontend.git
