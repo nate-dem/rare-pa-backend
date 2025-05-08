@@ -3,7 +3,7 @@
 //  Watch Backend
 //
 //  Created by nate demchak on 2/3/25.
-//
+
 
 import Foundation
 import HealthKit
@@ -161,3 +161,5 @@ extension WorkoutSessionManager: HKLiveWorkoutBuilderDelegate {
         }
     }
 }
+
+

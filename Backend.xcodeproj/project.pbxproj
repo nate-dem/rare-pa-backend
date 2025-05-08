@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		475092E82D5EBFC3009C930F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 475092E72D5EBFC3009C930F /* .gitignore */; };
-		475093F62D7121FB009C930F /* VisionPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475093F52D7121E9009C930F /* VisionPro.swift */; };
 		47F2AC3E2D55D60B00A58051 /* Backend-Watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 47F2AC1B2D55D60900A58051 /* Backend-Watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		47F2ACE22D55D94C00A58051 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 47F2ACE12D55D94C00A58051 /* FirebaseAnalytics */; };
 		47F2ACE42D55D94C00A58051 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 47F2ACE32D55D94C00A58051 /* FirebaseCore */; };
@@ -104,7 +103,6 @@
 
 /* Begin PBXFileReference section */
 		475092E72D5EBFC3009C930F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		475093F52D7121E9009C930F /* VisionPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPro.swift; sourceTree = "<group>"; };
 		47F2AB3C2D55D41100A58051 /* Backend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F2AB4C2D55D41200A58051 /* BackendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F2AB562D55D41200A58051 /* BackendUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackendUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,7 +237,6 @@
 		47F2AB332D55D41100A58051 = {
 			isa = PBXGroup;
 			children = (
-				475093F52D7121E9009C930F /* VisionPro.swift */,
 				475092E72D5EBFC3009C930F /* .gitignore */,
 				47F2AB3E2D55D41100A58051 /* Backend */,
 				47F2AB4F2D55D41200A58051 /* BackendTests */,
@@ -614,7 +611,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				475093F62D7121FB009C930F /* VisionPro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,6 +976,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Backend-Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Backend-Watch";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need to access your stored health data for the assessment.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need to access your heart rate for the assessment.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to monitor your heart rate for the assessment.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1015,6 +1012,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Backend-Watch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Backend-Watch";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "We need to access your stored health data for the assessment.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need to access your heart rate for the assessment.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need to monitor your heart rate for the assessment.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
